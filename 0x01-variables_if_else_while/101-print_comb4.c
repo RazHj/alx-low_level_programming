@@ -1,27 +1,41 @@
+#include <stdlib.h>
 #include <stdio.h>
 /**
-* main - entry point of the programm.
-* Description: This prints alphabet without 'q', 'e'.
-* Return: always return zero.
-**/
+ * main - prints all possible different combinations of three digits.
+ * Return: Always 0 (success)
+*/
 int main(void)
 {
-	int i = 0, j, k, l = 7, m = 1, n = 2;
+	int i = '0';
+	int j;
+	int k;
 
-	while (i <= l)
-	{
-		for (j = m; j <= 8; j++)
-			for (k = n; k <= 9; k++)
+		while (i <= '9')
+		{
+			j = '0';
+			while (j <= '9')
 			{
-				putchar('0' + i);
-				putchar('0' + j);
-				putchar('0' + k);
-				putchar(',');
-				putchar(' ');
+				k = '0';
+				while (k <= '0')
+				{
+					if (i < j && j < k)
+					{
+						putchar(i);
+						putchar(j);
+						putchar(k);
+						if (i != '7')
+						{
+							putchar(',');
+							putchar(' ');
+						}
+					}
+					k++;
+				}
+				j++;
 			}
-			n++;
-			m++;
-		l--;
-	}
+			i++;
+		}
+	putchar('\n');
+
 	return (0);
 }
