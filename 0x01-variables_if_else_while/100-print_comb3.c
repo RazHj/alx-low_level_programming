@@ -1,34 +1,29 @@
-#include <stdlib.h>
 #include <stdio.h>
 /**
- * main - prints all possible different combinations of two digits.
- * Return: Always 0 (success)
-*/
+* main - entry point of the programm.
+* Description: This prints alphabet without 'q', 'e'.
+* Return: always return zero.
+**/
 int main(void)
 {
-	int i = '0';
-	int j;
+	int i, j, x = 0, y = 1;
 
-	while (i <= '9')
+	for (i = x; i <= 9; i++)
 	{
-		j = '0';
-		while (j <= '9')
+		for (j = y; j <= 9; j++)
 		{
-			if (i < j)
+			putchar('0' + i);
+			putchar('0' + j);
+			if (i + j == 17)
 			{
-				putchar(i);
-				putchar(j);
-				if (i != '8' || (i == '8' && j != '9'))
-				{
-					putchar(',');
-					putchar(' ');
-
-				}
-			j++;
+				putchar('\n');
+				break;
 			}
-		i++;
+			putchar(',');
+			putchar(' ');
 		}
-	putchar('\n');
+		x++;
+		y++;
 	}
 	return (0);
 }
