@@ -1,40 +1,39 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * main - prints all possible different combinations of three digits.
- * Return: Always 0 (success)
+* main - prints all possible different combinations of three digits.
+*
+* Return: Always 0 (success)
 */
 int main(void)
 {
-	int i = '0';
-	int j;
-	int k;
+	int i, j, k;
+	int x = 0, y = 0, z = 0;
 
-		while (i <= '9')
+	for (i = x; i <= 7; i++)
+	{
+		for (j = y; j <= 8; j++)
 		{
-			j = '0';
-			while (j <= '9')
+			for (k = z; k <= 9; k++)
 			{
-				k = '0';
-				while (k <= '0')
+				if (i < j && j < k)
 				{
-					if (i < j && j < k)
+					putchar(i + '0');
+					putchar(j + '0');
+					putchar(k + '0');
+					if (i + j + k == 24)
 					{
-						putchar(i);
-						putchar(j);
-						putchar(k);
-						if (i != '7')
-						{
-							putchar(',');
-							putchar(' ');
-						}
+						putchar('\n');
+						break;
 					}
-					k++;
+					putchar(',');
+					putchar(' ');
 				}
-				j++;
 			}
-			i++;
 		}
-	putchar('\n');
+		x++;
+		y++;
+		z++;
+	}
 	return (0);
 }
